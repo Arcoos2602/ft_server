@@ -27,9 +27,8 @@ RUN rm /etc/nginx/sites-available/default
 RUN rm /etc/nginx/sites-enabled/default
 COPY srcs/nginx.conf /etc/nginx/sites-available
 COPY srcs/index.php /var/www/mywebsite
-#RUN chown -R www-data:www-data /var/www/mywebsite/*
-#RUN chmod -R 755 /var/www/mywebsite/*
-#RUN chown -R $USER:$USER /var/www/mywebsite/*
+RUN chown -R www-data:www-data /var/www/*
+RUN chmod -R 755 /var/www/*
 
 #INSTALL PHPMYADMIN
 #RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
@@ -41,8 +40,6 @@ COPY srcs/index.php /var/www/mywebsite
 #RUN service mysql start
 RUN ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 RUN nginx -t
-RUN service nginx restart \
-	&& service php7.3-fpm restart
 #RUN chmod 755 /usr/bin/script.sh
 
 EXPOSE 80
@@ -50,4 +47,6 @@ EXPOSE 443
 	
 # ENTRYPOINT ["script.sh"]
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD service nginx restart \
+	&& service php7.3-fpm start \
+	&& bash
