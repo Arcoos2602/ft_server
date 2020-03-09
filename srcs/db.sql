@@ -1,4 +1,3 @@
-CREATE DATABASE WORDPRESS;
-
-GRANT ALL ON *.* TO 'tcordonn'@localhost IDENTIFIED BY 'password';
-
+GRANT ALL PRIVILEGES ON *.* TO adminmysql@localhost
+IDENTIFIED BY 'lemotdepasse' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
