@@ -2,6 +2,8 @@ FROM debian:buster
 
 MAINTAINER tcordonn <tcordonn@student.42.fr>
 
+ADD /srcs/db.sql /tmp/
+
 # UPDATE
 RUN apt-get update
 RUN apt-get upgrade
@@ -31,25 +33,21 @@ RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-
 	&& tar xvf phpMyAdmin-4.9.0.1-all-languages.tar.gz \
 	&& mv phpMyAdmin-4.9.0.1-all-languages/ /usr/share/phpmyadmin \
 	&& cp /usr/share/phpmyadmin/config.sample.inc.php /usr/share/phpmyadmin/config.inc.php
-
-COPY srcs/config.inc.php /usr/share/phpmyadmin/config.inc.php
 RUN rm /etc/nginx/sites-available/default
 RUN rm /etc/nginx/sites-enabled/default
-COPY srcs/nginx.conf /etc/nginx/sites-available
-COPY srcs/index.php /var/www/mywebsite
 RUN chown -R $USER:$USER /var/www/*
 RUN chown -R www-data:www-data /var/www/*
 RUN chmod -R 755 /var/www/*
 RUN service mysql start
-RUN mariadb
-
-#INSTALL PHPMYADMIN
-#RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-#RUN tar -zxvf phpMyAdmin-4.9.0.1-all-languages.tar.gz
-#RUN mv phpMyAdmin-4.9.0.1-all-languages /usr/share/phpMyAdmin
+#RUN chown -R www-data:www-data /var/run/mysql/*
+RUN mysql -u root --password= < /tmp/db.sql
+# /var/run/mysqld/mysqld.sock
 
 #INSTALL WORDPRESS
 #SET UP SERVER
+COPY srcs/config.inc.php /usr/share/phpmyadmin/config.inc.php
+COPY srcs/nginx.conf /etc/nginx/sites-available
+COPY srcs/index.php /var/www/mywebsite
 RUN ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 RUN nginx -t
 #RUN chmod 755 /usr/bin/script.sh
