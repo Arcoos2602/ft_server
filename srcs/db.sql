@@ -1,3 +1,0 @@
-GRANT ALL PRIVILEGES ON *.* TO adminmysql@localhost
-IDENTIFIED BY 'lemotdepasse' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
