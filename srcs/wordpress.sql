@@ -108,10 +108,10 @@ CREATE TABLE `wp_options` (
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 (1, 'siteurl', 'https://localhost/wordpress', 'yes'),
 (2, 'home', 'https://localhost/wordpress', 'yes'),
-(3, 'blogname', 'ft_server by sdunckel', 'yes'),
+(3, 'blogname', 'ft_server by tcordonn', 'yes'),
 (4, 'blogdescription', 'Just another WordPress site', 'yes'),
 (5, 'users_can_register', '0', 'yes'),
-(6, 'admin_email', 'sdunckel@student.42.fr', 'yes'),
+(6, 'admin_email', 'tcordonn@student.42.fr', 'yes'),
 (7, 'start_of_week', '1', 'yes'),
 (8, 'use_balanceTags', '0', 'yes'),
 (9, 'use_smilies', '1', 'yes'),
@@ -376,10 +376,10 @@ CREATE TABLE `wp_serveroptions` (
 INSERT INTO `wp_serveroptions` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 (1, 'siteurl', 'https://localhost/wordpress', 'yes'),
 (2, 'home', 'https://localhost/wordpress', 'yes'),
-(3, 'blogname', 'ft_server by sdunckel', 'yes'),
+(3, 'blogname', 'ft_server by tcordonn', 'yes'),
 (4, 'blogdescription', 'Just another WordPress site', 'yes'),
 (5, 'users_can_register', '0', 'yes'),
-(6, 'admin_email', 'sdunckel@student.42.fr', 'yes'),
+(6, 'admin_email', 'tcordonn@student.42.fr', 'yes'),
 (7, 'start_of_week', '1', 'yes'),
 (8, 'use_balanceTags', '0', 'yes'),
 (9, 'use_smilies', '1', 'yes'),
@@ -658,7 +658,7 @@ CREATE TABLE `wp_serverusermeta` (
 --
 
 INSERT INTO `wp_serverusermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
-(1, 1, 'nickname', 'sdunckel'),
+(1, 1, 'nickname', 'tcordonn'),
 (2, 1, 'first_name', ''),
 (3, 1, 'last_name', ''),
 (4, 1, 'description', ''),
@@ -700,7 +700,7 @@ CREATE TABLE `wp_serverusers` (
 --
 
 INSERT INTO `wp_serverusers` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'sdunckel', '$P$BOdovrk6cwaPwWMIEVVepsJ8Ik0lGH1', 'sdunckel', 'sdunckel@student.42.fr', '', '2019-11-18 11:29:25', '', 0, 'sdunckel');
+(1, 'tcordonn', '$P$BOdovrk6cwaPwWMIEVVepsJ8Ik0lGH1', 'tcordonn', 'tcordonn@student.42.fr', '', '2019-11-18 11:29:25', '', 0, 'tcordonn');
 
 -- --------------------------------------------------------
 
@@ -794,7 +794,7 @@ CREATE TABLE `wp_usermeta` (
 --
 
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
-(1, 1, 'nickname', 'sdunckel'),
+(1, 1, 'nickname', 'tcordonn'),
 (2, 1, 'first_name', ''),
 (3, 1, 'last_name', ''),
 (4, 1, 'description', ''),
@@ -834,7 +834,7 @@ CREATE TABLE `wp_users` (
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'sdunckel', '$P$BYC2vJXh3HnUp8rED9RiR8HXEE6Hs6/', 'sdunckel', 'sdunckel@student.42.fr', '', '2019-11-18 12:01:15', '', 0, 'sdunckel');
+(1, 'tcordonn', '$P$BYC2vJXh3HnUp8rED9RiR8HXEE6Hs6/', 'tcordonn', 'tcordonn@student.42.fr', '', '2019-11-18 12:01:15', '', 0, 'tcordonn');
 
 --
 -- Indexes for dumped tables

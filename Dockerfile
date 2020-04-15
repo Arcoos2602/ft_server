@@ -37,7 +37,7 @@ RUN chmod 755 -R wordpress
 
 # SETUP SERVER
 RUN service mysql start && mysql -u root mysql < /var/mysql_setup.sql && mysql wordpress -u root --password= < /var/wordpress.sql
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj '/C=FR/ST=75/L=Paris/O=42/CN=sdunckel' -keyout /etc/ssl/certs/localhost.key -out /etc/ssl/certs/localhost.crt
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj '/C=FR/ST=75/L=Paris/O=42/CN=tcordonn' -keyout /etc/ssl/certs/localhost.key -out /etc/ssl/certs/localhost.crt
 RUN chown -R www-data:www-data *
 RUN chmod 755 -R *
 
