@@ -23,6 +23,7 @@ COPY ./srcs/wordpress.tar.gz /var/www/html/
 COPY ./srcs/nginx.conf /etc/nginx/sites-available/localhost
 COPY ./srcs/index.php var/www/
 RUN ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/localhost
+RUN rm /var/www/html/index.nginx-debian.html
 
 # INSTALL PHPMYADMIN
 WORKDIR /var/www/html/
